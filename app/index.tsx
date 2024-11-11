@@ -21,7 +21,7 @@ export default function Index() {
             <Text style={{color:'white', fontWeight:'bold',fontSize:40}}>Your artists</Text>
           </View>
           <View style={{width:'90%', height:'12%', gap: 30}}>
-            <Pressable style={{backgroundColor:'#171A1F',borderRadius: 26, width: '100%',height:'50%', alignItems:'center', justifyContent:'center'}}>
+            <Pressable style={{backgroundColor:'#171A1F',borderRadius: 26, width: '100%',height:'50%', alignItems:'center', justifyContent:'center'}} onLongPress={()=>{router.push('/register');}}>
               <Text style={{color:'white', fontSize: 18}}>Create an account</Text>
             </Pressable>
             <Pressable style={{backgroundColor:'#F7F1FE',borderRadius: 26, width: '100%',height:'50%', alignItems:'center', justifyContent:'center'}} onPress={handlePress}>
