@@ -35,7 +35,7 @@ export default function Index() {
             </View>
           </View>
           <View style={{width:'90%', height:'12%', gap: 10, alignItems:'center'}}>
-            <Pressable style={{backgroundColor:'#171A1F',borderRadius: 26, width: '100%',height:'50%', alignItems:'center', justifyContent:'center'}}>
+            <Pressable style={{backgroundColor:'#171A1F',borderRadius: 26, width: '100%',height:'50%', alignItems:'center', justifyContent:'center'}} onPress={()=>{router.push('/(tabs)')}}>
               <Text style={{color:'white', fontSize: 18, fontWeight:'bold'}}>LOGIN</Text>
             </Pressable>
             <View style={{flexDirection:'row', gap: 10}}>
