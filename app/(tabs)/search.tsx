@@ -112,6 +112,7 @@ export default function Tab() {
           onChangeText={setTextSearch}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
+          onPointerLeave={() => setIsFocused(false)}
         />
         <Text style={styles.searchClear} onPress={() => setTextSearch("")}>
           ✕
