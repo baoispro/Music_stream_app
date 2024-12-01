@@ -1,6 +1,7 @@
 import React from 'react';
 import { ScrollView, View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import { useRouter } from 'expo-router';
 
 const HomeScreen: React.FC = () => {
   const suggestions = [
@@ -37,6 +38,8 @@ const HomeScreen: React.FC = () => {
     return color;
   };
 
+  const router = useRouter();
+
   return (
     
     <ScrollView>
@@ -67,7 +70,7 @@ const HomeScreen: React.FC = () => {
         <Text style={styles.subheading}>Charts</Text>
         <ScrollView horizontal>
           {charts.map(chart => (
-            <TouchableOpacity key={chart.id}>
+            <TouchableOpacity key={chart.id} onPress={()=>{router.push('/playistDetail')}}>
               <View style={[styles.chartContainer, { backgroundColor: getRandomColor() }]}>
                 <Text style={{color:'white'}}>{chart.title}</Text>
               </View>
