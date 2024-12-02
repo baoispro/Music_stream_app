@@ -6,14 +6,15 @@ import {getFirestore} from "firebase/firestore"
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// Tư import lại firebase, firebase đã xóa 
 const firebaseConfig = {
-  apiKey: "AIzaSyDcCwINLsWx07WFeCllRLtxDhNO-wVt1IE",
-  authDomain: "react-native-auth-9cb0f.firebaseapp.com",
-  projectId: "react-native-auth-9cb0f",
-  storageBucket: "react-native-auth-9cb0f.firebasestorage.app",
-  messagingSenderId: "907982832330",
-  appId: "1:907982832330:web:7e8b1956f6710939e4ea33",
-  measurementId: "G-7PBMNVCWTR"
+  apiKey: "",
+  authDomain: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: "",
+  measurementId: ""
 };
 
 // Initialize Firebase
