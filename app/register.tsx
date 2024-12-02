@@ -3,6 +3,8 @@ import { Text, View, StyleSheet, ImageBackground,Image,Pressable } from "react-n
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import * as React from 'react';
+import { FIREBASE_AUTH } from "@/FireBaseConfig";
+import { createUserWithEmailAndPassword} from "firebase/auth";
 
 export default function Index() {
   const router = useRouter();
@@ -10,6 +12,17 @@ export default function Index() {
     router.push('/login');  // Chuyển đến trang details
   };
   const [checked, setChecked] = React.useState(false);
+  const [userName,setUserName] = React.useState('');
+  const [password,setPassword] = React.useState('');
+  const auth = FIREBASE_AUTH;
+  const signUp = async ()=>{
+    try{
+      const response = await createUserWithEmailAndPassword(auth,userName,password)
+      router.push('/login')
+    }catch (error: any){
+      alert("Sign in failed: "+error.message);
+    }
+  }
   return (
     <SafeAreaProvider>
       <SafeAreaView
@@ -25,14 +38,14 @@ export default function Index() {
           </View>
           <View style={{alignItems:'center',justifyContent:'center', width:'90%', height:'30%', gap: 10}}>
             <TextInput mode="outlined" placeholder="Username"outlineStyle={{borderRadius: 15}} left={<TextInput.Icon icon='account'/>} style={{width:'100%',}}/>
-            <TextInput mode="outlined" placeholder="Email address"outlineStyle={{borderRadius: 15}} left={<TextInput.Icon icon='email'/>} style={{width:'100%',}}/>
-            <TextInput mode="outlined" placeholder="Password"outlineStyle={{borderRadius: 15}} left={<TextInput.Icon icon='lock'/>} style={{width:'100%',}}/>
+            <TextInput mode="outlined" placeholder="Email address"outlineStyle={{borderRadius: 15}} left={<TextInput.Icon icon='email'/>} style={{width:'100%',}}  onChangeText={(text)=>setUserName(text)} value={userName}/>
+            <TextInput mode="outlined" placeholder="Password"outlineStyle={{borderRadius: 15}} left={<TextInput.Icon icon='lock'/>} style={{width:'100%',}} onChangeText={(text)=>setPassword(text)} value={password}/>
             <TextInput mode="outlined" placeholder="Confirm password"outlineStyle={{borderRadius: 15}} left={<TextInput.Icon icon='lock'/>} style={{width:'100%',}}/>
             <Text style={{color:'white', textAlign:'center'}}>By registering, you are agreeing to our Terms of use and Privacy Policy</Text>
 
           </View>
           <View style={{width:'90%', height:'12%', gap: 10, alignItems:'center'}}>
-            <Pressable style={{backgroundColor:'#171A1F',borderRadius: 26, width: '100%',height:'50%', alignItems:'center', justifyContent:'center'}}>
+            <Pressable style={{backgroundColor:'#171A1F',borderRadius: 26, width: '100%',height:'50%', alignItems:'center', justifyContent:'center'}} onPress={()=>signUp()}>
               <Text style={{color:'white', fontSize: 18, fontWeight:'bold'}}>REGISTER</Text>
             </Pressable>
             <View style={{flexDirection:'row', gap: 10}}>
