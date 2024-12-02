@@ -19,6 +19,7 @@ export default function Index() {
     try{
       const response = await createUserWithEmailAndPassword(auth,userName,password)
       router.push('/login')
+      alert("Bạn đã đăng kí thành công")
     }catch (error: any){
       alert("Sign in failed: "+error.message);
     }

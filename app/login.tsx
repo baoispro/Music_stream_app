@@ -19,6 +19,7 @@ export default function Index() {
     try{
       const response = await signInWithEmailAndPassword(auth,userName,password)
       router.push('/(tabs)')
+      alert("Bạn đã đăng nhập thành công")
     }catch (error: any){
       alert("Sign in failed: "+error.message);
     }
