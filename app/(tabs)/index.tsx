@@ -1,7 +1,8 @@
 import React from 'react';
-import { ScrollView, View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { ScrollView, View, Text, Image, TouchableOpacity, StyleSheet,Pressable } from 'react-native';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import { useRouter } from 'expo-router';
+
 
 const HomeScreen: React.FC = () => {
   const suggestions = [
@@ -51,8 +52,15 @@ const HomeScreen: React.FC = () => {
             <Image source={require("@/assets/images/account.jpg")} style={styles.roundImage}/>
           </View>
         </View>
-        <Text style={styles.heading}>Good morning,</Text>
-        <Text style={{fontSize: 20, fontWeight: 700}}>Ashley Scott</Text>
+        <View style={{flexDirection:'row',justifyContent:'space-between', alignItems:'center'}}>
+          <View>
+            <Text style={styles.heading}>Good morning,</Text>
+            <Text style={{fontSize: 20, fontWeight: 700}}>Ashley Scott</Text>
+          </View>
+          <Pressable onPress={()=>{router.push('/ai')}}>
+            <FontAwesome5 name="robot" size={24} color="black" />
+          </Pressable>
+        </View>
 
         {/* Suggestions */}
         <Text style={styles.subheading}>Suggestions for you</Text>

@@ -13,5 +13,5 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-  ]
+, "components/message.js", "components/response.js"  ]
 }
