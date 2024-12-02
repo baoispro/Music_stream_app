@@ -242,7 +242,6 @@ const Feed = () => {
               <TextInput
                 placeholder="Write a comment..."
                 style={styles.commentInput}
-                inlineImageLeft="search_icon"
               />
               <TouchableOpacity>
                 <Icon name="send" size={24} color="#6e1ed6" />
