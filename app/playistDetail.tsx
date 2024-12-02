@@ -2,6 +2,7 @@ import React from 'react';
 import { FlatList, Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import EvilIcons from '@expo/vector-icons/EvilIcons';
 import Entypo from '@expo/vector-icons/Entypo';
+import { useRouter } from 'expo-router';
 
 // Define the type for the song data
 interface Song {
@@ -19,6 +20,7 @@ interface Chart {
 }
 
 const Index: React.FC = () => {
+  const router = useRouter();
   const chart: Chart = {
     title: 'Top 50 - Canada',
     songs: [
@@ -82,7 +84,7 @@ const Index: React.FC = () => {
         <Text style={styles.songArtist}>{item.artist}</Text>
         <Text style={styles.songPlays}>{item.plays}  {item.duration}</Text>
       </View>
-      <TouchableOpacity onPress={() => { /* Play song logic */ }}>
+      <TouchableOpacity onPress={() => {router.push('/songAudio')}}>
         <Text style={styles.playButton}>Play</Text>
       </TouchableOpacity>
     </View>
